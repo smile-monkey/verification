@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE inventory>
+<inventory>
+    <book year="2000">
+        <title>mybatis</title>
+        <isbn>11231213</isbn>
+    </book>
+    <book year="2005">
+        <title>mybatis plus</title>
+        <isbn>2222</isbn>
+        <sumary>简介</sumary>
+    </book>
+</inventory>

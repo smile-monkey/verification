@@ -1,4 +1,4 @@
-package com.technology;
+package com.technology.verify;
 
 import com.technology.entity.BizOrder;
 import com.technology.mapper.BizOrderMapper;
@@ -15,6 +15,7 @@ import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 
 public class SimpleTest {
     public static void main(String[] args) throws IOException {
@@ -24,10 +25,12 @@ public class SimpleTest {
 //        SqlSessionFactory sqlSessionFactory = getSqlSessionFactoryFromCode();
         SqlSession session = sqlSessionFactory.openSession();
         try {
-//            BizOrder bizOrder =  session.selectOne("com.technology.mapper.BizOrderMapper.selectOneById", 1);
+            BizOrder bizOrder = session.selectOne("com.technology.mapper.BizOrderMapper.selectOneById", new HashMap<String,Integer>() {{
+                put("ida", 1);
+            }});
 //            要求：mapper接口名称和xml文件名称一致
-            BizOrderMapper mapper = session.getMapper(BizOrderMapper.class);
-            BizOrder bizOrder = mapper.selectOneById(1);
+//            BizOrderMapper mapper = session.getMapper(BizOrderMapper.class);
+//            BizOrder bizOrder = mapper.selectOneById(1);
             System.out.println(bizOrder);
         } finally {
             session.close();
